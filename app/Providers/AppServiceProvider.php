@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL; // 👈 PRIDĖK ŠITĄ
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,9 +13,12 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        // Share product categories with all views (for navbar dropdown).
-        // "Mityba" ir "Sportas" kategorijos paslepiamos iš Prekės dropdown'o,
-        // nes navbar'e jos turi atskirus meniu punktus, vedančius į turinio puslapius.
+        // 👇 PRIDĖK ŠITĄ BLOKĄ
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
+
+        // Share product categories with all views
         View::composer('partials.navbar', function ($view) {
             $view->with('navProductCategories',
                 Category::where('type', 'product')
