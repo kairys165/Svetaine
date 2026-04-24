@@ -17,7 +17,6 @@
                         <td><code>{{ $p->slug }}</code></td>
                         <td>@if($p->is_active)<i class="bi bi-check-circle-fill text-success"></i>@else<i class="bi bi-x-circle text-muted"></i>@endif</td>
                         <td class="text-end">
-                            <a href="{{ route('nutrition.show', $p->id) }}" target="_blank" class="btn btn-sm btn-outline-secondary"><i class="bi bi-eye"></i></a>
                             <a href="{{ route('admin.nutrition-plans.edit', $p) }}" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></a>
                             <form method="POST" action="{{ route('admin.nutrition-plans.destroy', $p) }}" class="d-inline" onsubmit="return confirm('Ištrinti?')">@csrf @method('DELETE')<button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></form>
                         </td>
