@@ -22,8 +22,6 @@
 
         <div class="d-flex gap-2 flex-wrap">
 
-            <button class="btn btn-outline-secondary btn-sm" id="exportBtn"><i class="bi bi-download"></i> JSON</button>
-
             <button class="btn btn-outline-secondary btn-sm" id="printBtn"><i class="bi bi-printer"></i> Spausdinti</button>
 
             <button class="btn btn-outline-danger btn-sm" id="resetBtn"><i class="bi bi-arrow-counterclockwise"></i> Išvalyti</button>
@@ -561,17 +559,7 @@ document.querySelectorAll('.add-exercise-btn').forEach(btn => {
 
 
 
-// ---- Eksportavimo ir atstatymo veiksmai ----
-
-document.getElementById('exportBtn').addEventListener('click', () => {
-
-    const blob = new Blob([JSON.stringify(plan, null, 2)], { type: 'application/json' });
-
-    const a = document.createElement('a');
-
-    a.href = URL.createObjectURL(blob); a.download = 'fitshop-plan.json'; a.click();
-
-});
+// ---- Atstatymo veiksmai ----
 
 document.getElementById('resetBtn').addEventListener('click', () => {
 
