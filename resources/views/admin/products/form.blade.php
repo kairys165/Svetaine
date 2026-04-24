@@ -160,21 +160,6 @@
 
 
 
-                <div class="card shadow-sm mb-3">
-
-                    <div class="card-body">
-
-                        <h5 class="mb-3">Reitingas</h5>
-
-                        <div class="mb-2"><label class="form-label small">Reitingas (0–5)</label><input type="number" step="0.1" min="0" max="5" name="rating" value="{{ old('rating', $product->rating) }}" class="form-control"></div>
-
-                        <div class="mb-2"><label class="form-label small">Atsiliepimų skaičius</label><input type="number" name="rating_count" value="{{ old('rating_count', $product->rating_count) }}" class="form-control"></div>
-
-                    </div>
-
-                </div>
-
-
 
                 <div class="card shadow-sm mb-3">
 
