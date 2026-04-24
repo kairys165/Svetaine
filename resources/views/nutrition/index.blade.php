@@ -254,27 +254,6 @@
 
 
 
-                <div>
-
-                    <label for="dietStyle" class="small text-muted">Dietos stilius</label>
-
-                    <select id="dietStyle" class="form-select">
-
-                        <option value="" selected></option>
-
-                        <option value="balanced">Subalansuota</option>
-
-                        <option value="low-carb">Mažai angliavandenių</option>
-
-                        <option value="high-protein">Daug baltymų</option>
-
-                        <option value="keto">Keto</option>
-
-                    </select>
-
-                </div>
-
-
 
                 <p class="bmi-note" id="bmi-suggestion">Tavo svoris yra sveikoje normoje. Koncentruokis į gerą mitybą ir reguliarų sportą.</p>
 
