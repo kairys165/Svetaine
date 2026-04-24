@@ -28,13 +28,13 @@ class CheckoutController extends Controller
     public function place(Request $request, CartService $krepselis)
     {
         $data = $request->validate([
-            'billing_name' => 'required|string|max:255',
+            'billing_name' => 'required|string|min:3|max:255',
             'billing_email' => 'required|email|max:255',
-            'billing_phone' => 'nullable|string|max:50',
-            'billing_address' => 'required|string|max:255',
-            'billing_city' => 'required|string|max:120',
-            'billing_zip' => 'required|string|max:20',
-            'billing_country' => 'required|string|max:120',
+            'billing_phone' => 'required|string|min:6|max:50',
+            'billing_address' => 'required|string|min:5|max:255',
+            'billing_city' => 'required|string|min:2|max:120',
+            'billing_zip' => 'required|string|min:3|max:20',
+            'billing_country' => 'required|string|min:2|max:120',
             'notes' => 'nullable|string|max:1000',
             'payment_method' => 'required|in:card,bank,paypal,cod',
         ]);

@@ -98,9 +98,11 @@
 
                     <div class="col-md-6">
 
-                        <label class="form-label small">Telefonas</label>
+                        <label class="form-label small">Telefonas *</label>
 
-                        <input type="text" name="billing_phone" value="{{ old('billing_phone', $user?->phone) }}" class="form-control">
+                        <input type="text" name="billing_phone" value="{{ old('billing_phone', $user?->phone) }}" class="form-control @error('billing_phone') is-invalid @enderror" required>
+
+                        @error('billing_phone')<div class="invalid-feedback">{{ $message }}</div>@enderror
 
                     </div>
 
@@ -108,7 +110,9 @@
 
                         <label class="form-label small">Šalis *</label>
 
-                        <input type="text" name="billing_country" value="{{ old('billing_country', $user?->country ?? 'Lietuva') }}" class="form-control" required>
+                        <input type="text" name="billing_country" value="{{ old('billing_country', $user?->country ?? 'Lietuva') }}" class="form-control @error('billing_country') is-invalid @enderror" required>
+
+                        @error('billing_country')<div class="invalid-feedback">{{ $message }}</div>@enderror
 
                     </div>
 
@@ -126,7 +130,9 @@
 
                         <label class="form-label small">Miestas *</label>
 
-                        <input type="text" name="billing_city" value="{{ old('billing_city', $user?->city) }}" class="form-control" required>
+                        <input type="text" name="billing_city" value="{{ old('billing_city', $user?->city) }}" class="form-control @error('billing_city') is-invalid @enderror" required>
+
+                        @error('billing_city')<div class="invalid-feedback">{{ $message }}</div>@enderror
 
                     </div>
 
@@ -134,7 +140,9 @@
 
                         <label class="form-label small">Pašto kodas *</label>
 
-                        <input type="text" name="billing_zip" value="{{ old('billing_zip', $user?->zip) }}" class="form-control" required>
+                        <input type="text" name="billing_zip" value="{{ old('billing_zip', $user?->zip) }}" class="form-control @error('billing_zip') is-invalid @enderror" required>
+
+                        @error('billing_zip')<div class="invalid-feedback">{{ $message }}</div>@enderror
 
                     </div>
 
