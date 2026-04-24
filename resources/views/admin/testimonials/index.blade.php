@@ -19,7 +19,7 @@
                                 @csrf @method('PUT')
                                 <input type="hidden" name="approved" value="{{ $t->approved ? 0 : 1 }}">
                                 <button class="btn btn-sm btn-outline-{{ $t->approved ? 'warning' : 'success' }}">
-                                    <i class="bi bi-{{ $t->approved ? 'x-lg' : 'check2' }}"></i> {{ $t->approved ? 'Atšaukti' : 'Patvirtinti' }}
+                                    <i class="bi bi-{{ $t->approved ? 'eye-slash' : 'check2' }}"></i> {{ $t->approved ? 'Slėpti' : 'Patvirtinti' }}
                                 </button>
                             </form>
                             <form method="POST" action="{{ route('admin.testimonials.destroy', $t) }}" class="d-inline" onsubmit="return confirm('Ištrinti?')">
