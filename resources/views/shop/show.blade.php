@@ -65,6 +65,41 @@
                         @endforeach
                     </div>
                 @endif
+
+                {{-- Atsiliepimo forma --}}
+                @auth
+                    <div class="mt-4">
+                        <h5>Palikite atsiliepimą</h5>
+                        @if(session('review_success'))
+                            <div class="alert alert-success small">{{ session('review_success') }}</div>
+                        @endif
+                        <form method="POST" action="{{ route('product.review', $product->id) }}">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="form-label small">Reitingas *</label>
+                                <select name="rating" class="form-select @error('rating') is-invalid @enderror" required>
+                                    <option value="">Pasirinkite...</option>
+                                    @for($s = 5; $s >= 1; $s--)
+                                        <option value="{{ $s }}" @selected(old('rating') == $s)>{{ $s }} {{ str_repeat('★', $s) }}</option>
+                                    @endfor
+                                </select>
+                                @error('rating')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small">Pavadinimas</label>
+                                <input type="text" name="title" value="{{ old('title') }}" class="form-control" maxlength="150" placeholder="Trumpas apibendrinimas...">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small">Atsiliepimas *</label>
+                                <textarea name="comment" class="form-control @error('comment') is-invalid @enderror" rows="3" required minlength="5" placeholder="Papasakokite apie savo patirtį...">{{ old('comment') }}</textarea>
+                                @error('comment')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i> Pateikti atsiliepimą</button>
+                        </form>
+                    </div>
+                @else
+                    <p class="mt-3 text-muted small"><a href="{{ route('login') }}">Prisijunkite</a>, kad galėtumėte palikti atsiliepimą.</p>
+                @endauth
             </div>
         </div>
 
